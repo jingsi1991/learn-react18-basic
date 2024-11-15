@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { ThemeContext } from '../context/Theme'
 
 class Header extends Component {
+  // 类组件无法关联多个Context
+  static contextType = ThemeContext
   static propTypes = {
     list: PropTypes.array
   }
@@ -15,9 +18,10 @@ class Header extends Component {
     return (
       <div>
         <h3>Header</h3>
+        <h4>{this.context.name}</h4>
         <ul>
           {list.map(item => {
-            return <li>{item.name}</li>
+            return <li key={item.name}>{item.name}</li>
           })}
         </ul>
       </div>

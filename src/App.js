@@ -1,15 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
 import Header from './component/Header';
+import Home from './component/Home';
+import { ThemeContext } from './context/Theme';
+import { UserContext } from './context/User';
 
 function App() {
   const list = [
-    {name: 123},
-    {name: 2342},
-    {name: 43242},
-    {name: 423432}
+    { name: 123 },
+    { name: 2342 },
+    { name: 43242 },
+    { name: 423432 }
   ]
-  
+
   return (
     <div className="App">
       <header className="App-header">
@@ -17,7 +20,12 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <Header list={list}/>
+        <UserContext.Provider value={{name:'liudawei',age:34}}>
+          <ThemeContext.Provider value={{ name: 123, color: 'red' }}>
+            <Header list={list} />
+            <Home />
+          </ThemeContext.Provider>
+        </UserContext.Provider>
         <a
           className="App-link"
           href="https://reactjs.org"
