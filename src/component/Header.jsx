@@ -18,6 +18,15 @@ class Header extends Component {
     counter: 0
   }
 
+  /**
+   * 类组件优化：
+   *  1、shouldComponentUpdate 生命周期：比较新旧props和state，如果有变化返回true，进行 render，否则返回false ，不进行 render
+   *  2、继承PureComponent 类，自动实现 shouldComponentUpdate ，不过是浅比较
+  */ 
+  shouldComponentUpdate(nextProps,nextState){
+    return true
+  }
+
   add = ()=>{
     // setState是异步的，最终counter只加了 1
     // this.setState({
@@ -68,6 +77,7 @@ class Header extends Component {
   render() {
     const { list } = this.props
     const { counter} = this.state
+    console.log('header render')
     return (
       <div>
         <h3>Header</h3>
