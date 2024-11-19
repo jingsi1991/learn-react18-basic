@@ -7,6 +7,7 @@ const Home = memo(() => {
   return (
     <div>
       <h4>Home</h4>
+      
       <UserContext.Consumer>
         {
           () => (

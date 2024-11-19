@@ -22,6 +22,7 @@ class Header extends Component {
    * 类组件优化：
    *  1、shouldComponentUpdate 生命周期：比较新旧props和state，如果有变化返回true，进行 render，否则返回false ，不进行 render
    *  2、继承PureComponent 类，自动实现 shouldComponentUpdate ，不过是浅比较
+   *      标记 isPureComponent ，然后通过 shallowEqual 进行浅层比较
   */ 
   shouldComponentUpdate(nextProps,nextState){
     return true
