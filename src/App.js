@@ -1,19 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
-import Header from './component/Header';
+// import Header from './component/Header';
 import Home from './component/Home';
 import { ThemeContext } from './context/Theme';
 import { UserContext } from './context/User';
 import Dashboard from './component/Ref/Dashboard'
+import Form from './component/Form';
 
 
 function App() {
-  const list = [
-    { name: 123 },
-    { name: 2342 },
-    { name: 43242 },
-    { name: 423432 }
-  ]
+  // const list = [
+  //   { name: 123 },
+  //   { name: 2342 },
+  //   { name: 43242 },
+  //   { name: 423432 }
+  // ]
 
   return (
     <div className="App">
@@ -23,7 +24,8 @@ function App() {
           <div style={{flex: 1}}>
             <UserContext.Provider value={{ name: 'liudawei', age: 34 }}>
               <ThemeContext.Provider value={{ name: 123, color: 'red' }}>
-                <Header list={list} />
+                {/* <Header list={list} /> */}
+                <Form />
                 <Home />
               </ThemeContext.Provider>
             </UserContext.Provider>
