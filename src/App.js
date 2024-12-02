@@ -1,48 +1,66 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+// import logo from './logo.svg';
 import './App.css';
-// import Header from './component/Header';
-import Home from './component/Home';
-import { ThemeContext } from './context/Theme';
-import { UserContext } from './context/User';
-import Dashboard from './component/Ref/Dashboard'
-import Form from './component/Form';
 
+import SetStateCom from './component/SetState';
 
-function App() {
+import RefComponent from './component/Ref'
+import FormComponent from './component/Form';
+import ContentComponent from './component/Content';
+import Performance from './component/Performance'
+import Hoc from './component/Hoc';
+import PortalsCom from './component/Portals';
+import Strict from './component/Strict';
+
+const App = () => {
   // const list = [
   //   { name: 123 },
   //   { name: 2342 },
   //   { name: 43242 },
   //   { name: 423432 }
   // ]
+  const menuList = [
+    { key: 'content', title: 'Content', Component: <ContentComponent /> },
+    { key: 'ref', title: 'Ref', Component: <RefComponent /> },
+    { key: 'setState', title: 'setState', Component: <SetStateCom /> },
+    { key: 'form', title: '表单', Component: <FormComponent /> },
+    { key: 'performance', title: '性能优化', Component: <Performance /> },
+    { key: 'hoc', title: 'HOC组件', Component: <Hoc /> },
+    { key: 'Portals', title: 'PortalsCom', Component: <PortalsCom /> },
+    { key: 'StrictMode', title: 'StrictMode', Component: <Strict /> }
+  ]
+  const [activeMenu, setActiveMenu] = useState(menuList[0])
+
+  const handleMenuClick = (item) => {
+    setActiveMenu(item)
+  }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <div style={{ display: 'flex', width:'100%' }}>
-          <div style={{flex: 1}}>
-            <UserContext.Provider value={{ name: 'liudawei', age: 34 }}>
-              <ThemeContext.Provider value={{ name: 123, color: 'red' }}>
-                {/* <Header list={list} /> */}
-                <Form />
-                <Home />
-              </ThemeContext.Provider>
-            </UserContext.Provider>
-          </div>
-          <div style={{flex: 1}}>
-            <Dashboard />
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-          </div>
+    <div className="app">
+      <div className='header'>
+        <h3>React18 核心知识点Demo</h3>
+      </div>
+      <div className='content'>
+        <div className='side'>
+          <ul>
+            {
+              menuList.map((menu, index) => {
+                return (
+                  <li
+                    key={menu.key}
+                    className={menu.key === activeMenu.key ? 'active' : ''}
+                    onClick={() => handleMenuClick(menu)}>
+                    {`${index + 1}、${menu.title}`}
+                  </li>
+                )
+              })
+            }
+          </ul>
         </div>
-      </header>
+        <div className='main'>
+          {activeMenu.Component}
+        </div>
+      </div>
     </div>
   );
 }

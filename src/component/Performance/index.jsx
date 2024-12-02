@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { ThemeContext } from '../context/Theme'
 import { flushSync } from 'react-dom'
 
 class Header extends Component {
-  // 类组件无法关联多个Context
-  static contextType = ThemeContext
+
   static propTypes = {
     list: PropTypes.array,
   }

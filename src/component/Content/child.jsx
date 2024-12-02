@@ -1,12 +1,11 @@
-import React, { memo } from 'react'
-import { ThemeContext } from '../context/Theme'
-import { UserContext } from '../context/User'
+import React from 'react'
+import { ThemeContext } from '../../context/Theme';
+import { UserContext } from '../../context/User';
 
-// memo：函数式组件的性能优化
-const Home = memo(() => {
+const Child = () =>{
   return (
     <div>
-      <h4>Home</h4>
+      <h4>我是Content的子组件</h4>
       
       <UserContext.Consumer>
         {
@@ -23,6 +22,6 @@ const Home = memo(() => {
       </UserContext.Consumer>
     </div>
   )
-})
+}
 
-export default Home
+export default Child

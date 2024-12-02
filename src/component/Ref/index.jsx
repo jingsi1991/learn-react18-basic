@@ -9,6 +9,7 @@
  */
 import React, { Component, createRef } from 'react'
 import Func from './Func'
+import './style.css'
 
 class Dashboard extends Component {
   constructor(props) {
@@ -26,36 +27,37 @@ class Dashboard extends Component {
     console.log(this.refs.BtnRef)
   }
 
-  showH2Ref = ()=>{
+  showH2Ref = () => {
     console.log(this.H2Ref.current)
   }
 
-  showCallBackRef = ()=>{
+  showCallBackRef = () => {
     console.log(this.callBaccallBackElkRef)
   }
-  
-  showFuncRef = ()=>{
+
+  showFuncRef = () => {
     console.log(this.FuncRef.current)
   }
 
   render() {
     return (
       <div>
-        <div>
+        <div className='item'>
           {/* 字符串形式 */}
+          <h2 >我是字符串形式</h2>
           <button ref="BtnRef" onClick={this.showBtnRef}>我是BtnRef</button>
         </div>
-        <div>
+        <div className='item'>
           <h2 ref={this.H2Ref}>我是createRef</h2>
           <button onClick={this.showH2Ref}>获取createRef</button>
         </div>
-        <div>
+        <div className='item'>
           {/* 回调函数形式 */}
-          <h2 ref={(el)=>this.callBackEl = el }>我是createRef</h2>
-          <button onClick={this.showCallBackRef}>获取createRef</button>
+          <h2 ref={(el) => this.callBackEl = el}>我是回调函数形式</h2>
+          <button onClick={this.showCallBackRef}>获取回调函数形式</button>
         </div>
-        <div>
-          <Func ref={this.FuncRef}/>
+        <div className='item'>
+          <Func ref={this.FuncRef} />
           <button onClick={this.showFuncRef}>showFuncRef</button>
         </div>
       </div>

@@ -1,6 +1,54 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
+ul,li {
+  list-style: none;
+}
+
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.app .header{
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-bottom: 1px solid #c2c2c2;
+}
+
+.app .content{
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.app .content .side{
+  width: 180px;
+  line-height: 40px;
+  border-right: 1px solid #c2c2c2;
+}
+
+.app .content .side li{
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+.app .content .side li.active,
+.app .content .side li:hover{
+  color: #1677ff;
+  font-weight: 500;
+  background-color: #e6f4ff;
+}
+
+
+.app .content .main{
+  padding: 20px 50px; 
+}
+
 
 .App-logo {
   height: 20vmin;
