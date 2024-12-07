@@ -12,6 +12,8 @@ import Hoc from './component/Hoc';
 import PortalsCom from './component/Portals';
 import Strict from './component/Strict';
 
+import DiyRedux from './component/Redux1';
+
 const App = () => {
   // const list = [
   //   { name: 123 },
@@ -27,7 +29,8 @@ const App = () => {
     { key: 'performance', title: '性能优化', Component: <Performance /> },
     { key: 'hoc', title: 'HOC组件', Component: <Hoc /> },
     { key: 'Portals', title: 'PortalsCom', Component: <PortalsCom /> },
-    { key: 'StrictMode', title: 'StrictMode', Component: <Strict /> }
+    { key: 'StrictMode', title: 'StrictMode', Component: <Strict /> },
+    { key: 'Redux1', title: 'DiyRedux', Component: <DiyRedux /> }
   ]
   const [activeMenu, setActiveMenu] = useState(menuList[0])
 

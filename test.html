@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Map with Border</title>
+    <style>
+        .image-container {
+            position: relative;
+            display: inline-block;
+        }
+        .border-overlay {
+            position: absolute;
+            border: 2px solid red; /* 边框颜色和宽度 */
+            pointer-events: none; /* 使边框不会阻挡点击事件 */
+        }
+        area{
+          cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="./300.png" usemap="#imagemap" alt="Example Image">
+        
+        <!-- 绝对定位的边框元素 -->
+        <div class="border-overlay" style="top: 154px; left: 32px; width: 188px; height: 148px;"></div>
+        
+        <map name="imagemap">
+            <area shape="poly" coords="34,156,78,189,135,234,200,198,220,140,185,110,130,80" href="https://www.example.com" alt="Irregular Area">
+        </map>
+    </div>
+</body>
+</html>

@@ -4,7 +4,7 @@ import Portal from '../Portal'
 import Overlay from './Overlay ';
 import './style.css'
 
-const Modal = ({ visible, mask, title, onCancel, onOk, children }) => {
+const Modal = ({ visible, mask, title, onCancel, onOk, children, getContainer }) => {
   if (visible) {
     return (
       <Portal mode="modal">

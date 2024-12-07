@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Map with Borders on Areas</title>
+    <style>
+        img[usemap] {
+            border: 1px solid #ccc; /* 给图片本身添加边框 */
+            display: block;
+            margin: 20px auto;
+        }
+        area {
+            outline: none; /* 默认情况下移除焦点时的边框 */
+        }
+        area:focus {
+            outline: 2px solid red; /* 当区域获得焦点时（例如通过键盘导航），显示红色边框 */
+        }
+        /* 使用伪元素来模拟边框 */
+        area:hover::before {
+            content: '';
+            position: absolute;
+            border: 2px solid blue; /* 悬停时显示蓝色边框 */
+            /* 根据需要调整大小和位置 */
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none; /* 防止伪元素干扰点击事件 */
+        }
+        /* 为了使伪元素正确定位，需要给包含图片的容器添加相对定位 */
+        .image-container {
+            position: relative;
+            display: inline-block; /* 使容器大小适应图片 */
+        }
+    </style>
+</head>
+<body>
+
+<div class="image-container">
+    <img src="./300.png" usemap="#imagemap" alt="Image Map Example">
+    <map name="imagemap">
+        <area shape="rect" coords="30,30,150,150" alt="Area 1" href="https://www.example1.com" target="_blank" />
+        <area shape="circle" coords="200,150,50" alt="Area 2" href="https://www.example2.com" target="_blank" />
+    </map>
+</div>
+
+</body>
+</html>
